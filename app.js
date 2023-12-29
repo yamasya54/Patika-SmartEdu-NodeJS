@@ -11,14 +11,13 @@ const userRoute = require('./routes/userRoute');
 
 const app = express();
 
+
+
 //Connect DB
+mongoose.set('strictQuery', false);
+
 mongoose
-  .connect('mongodb://localhost/smartedu-db', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-  })
+  .connect('mongodb://localhost/smartedu-db')
   .then(() => {
     console.log('DB Connected Successfully');
   });
